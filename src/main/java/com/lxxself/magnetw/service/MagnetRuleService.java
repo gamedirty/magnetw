@@ -26,6 +26,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.*;
+import java.util.function.Consumer;
 
 /**
  * 规则服务
@@ -131,8 +132,8 @@ public class MagnetRuleService {
      */
     private Map<String, MagnetRule> getMagnetRule() {
         if (magnetRuleMap == null || sites == null) {
-            magnetRuleMap = new LinkedHashMap<String, MagnetRule>();
-            sites = new ArrayList<MagnetRule>();
+            magnetRuleMap = new LinkedHashMap<>();
+            sites = new ArrayList<>();
 
             logger.info("准备加载源站规则...");
 
@@ -163,7 +164,7 @@ public class MagnetRuleService {
                 log.append("个网站规则加载完成，其中启用");
                 log.append(magnetRuleMap.size());
                 log.append("个，忽略");
-                log.append(rules.size() - magnetRuleMap.size()-failCount);
+                log.append(rules.size() - magnetRuleMap.size() - failCount);
                 log.append("个，失败");
                 log.append(failCount);
                 log.append("个");
@@ -217,6 +218,7 @@ public class MagnetRuleService {
     }
 
     private List<MagnetRule> loadMagnetRule() {
+        logger.info("配置：" + config.toString());
         if (config.isLocalRule()) {
             return loadResourceMagnetRule();
         } else {

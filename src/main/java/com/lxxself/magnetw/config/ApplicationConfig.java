@@ -153,4 +153,26 @@ public class ApplicationConfig {
         return new File(getExternalDataDir(), "config.properties");
     }
 
+    @Override
+    public String toString() {
+        return "ApplicationConfig{" +
+                "ruleJsonUri='" + ruleJsonUri + '\'' +
+                ", adminPasswordMD5='" + adminPasswordMD5 + '\'' +
+                ", versionName='" + versionName + '\'' +
+                ", sourceTimeout=" + sourceTimeout +
+                ", proxyIgnore=" + proxyIgnore +
+                ", proxyEnabled=" + proxyEnabled +
+                ", proxyHost='" + proxyHost + '\'' +
+                ", proxyPort=" + proxyPort +
+                ", resultToast=" + resultToast +
+                ", searchPlaceholder='" + searchPlaceholder + '\'' +
+                ", versionLink='" + versionLink + '\'' +
+                ", reportEnabled=" + reportEnabled +
+                ", feedbackEnabled=" + feedbackEnabled +
+                ", preloadEnabled=" + preloadEnabled +
+                ", trackersEnabled=" + trackersEnabled +
+                ", trackersUrl='" + trackersUrl + '\'' +
+                ", trackersUpdateIntervalHour=" + trackersUpdateIntervalHour +
+                '}';
+    }
 }

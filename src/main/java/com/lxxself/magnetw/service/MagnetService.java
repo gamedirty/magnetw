@@ -174,7 +174,7 @@ public class MagnetService {
         }
 
         String url = formatSiteUrl(rule, keyword, sort, page);
-
+        logger.info("组织连接：" + url);
         //请求源站
         try {
             Document dom = requestSourceSite(url, rule.getSite(), rule.getHost(), rule.isProxy(), userAgent);
